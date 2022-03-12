@@ -55,6 +55,7 @@ function RepositoriesProvider({ children }: RepositoriesProviderProps) {
       }
 
       const response = await api.get<RepositoryProps>(`repos/${repositoryName}`);
+     
       const { data: issues } = await api.get<IssueProps[]>(`repos/${repositoryName}/issues`);
       setRepositories([...repositories, {
         ...response.data,
